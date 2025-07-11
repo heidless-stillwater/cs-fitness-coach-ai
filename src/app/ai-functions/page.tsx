@@ -86,6 +86,10 @@ const aiFunctions = [
   }
 ];
 
+const generateIdFromName = (name: string) => {
+  return name.toLowerCase().replace(/[\s&]+/g, '-');
+};
+
 export default function AiFunctionsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted to-background">
@@ -112,7 +116,7 @@ export default function AiFunctionsPage() {
                 </TableHeader>
                 <TableBody>
                   {aiFunctions.map((func, index) => (
-                    <TableRow key={index} className="hover:bg-muted/50">
+                    <TableRow key={index} id={generateIdFromName(func.name)} className="hover:bg-muted/50 scroll-mt-20">
                       <TableCell className="font-medium">{func.name}</TableCell>
                       <TableCell className="text-muted-foreground">{func.description}</TableCell>
                       <TableCell className="text-muted-foreground">{func.benefit}</TableCell>

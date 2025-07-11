@@ -46,9 +46,9 @@ const adminLinks = [
 ];
 
 const toolsLinks = [
-    { href: "/ai-functions", label: "Personalized Workout Plan Generation" },
-    { href: "/ai-functions", label: "Intelligent Client Engagement Bots" },
-    { href: "/ai-functions", label: "Dynamic Nutrition Guidance" },
+    { href: "/ai-functions#personalized-workout-plan-generation", label: "Personalized Workout Plan Generation" },
+    { href: "/ai-functions#intelligent-client-engagement-bots", label: "Intelligent Client Engagement Bots" },
+    { href: "/ai-functions#dynamic-nutrition-guidance", label: "Dynamic Nutrition Guidance" },
 ];
 
 export function Header() {
@@ -61,6 +61,25 @@ export function Header() {
     setIsMounted(true);
   }, []);
 
+  if (!isMounted) {
+    return (
+       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+            <Link href="/" className="flex items-center gap-2">
+                <Dumbbell className="h-8 w-8 text-primary" />
+                <span className="text-2xl font-bold font-headline">Achieve Fitness</span>
+            </Link>
+            <div className="flex items-center gap-4">
+                <div className="h-8 w-24 rounded-md bg-muted animate-pulse"></div>
+                <div className="h-8 w-24 rounded-md bg-muted animate-pulse"></div>
+                <div className="h-8 w-24 rounded-md bg-muted animate-pulse"></div>
+                <div className="h-10 w-24 rounded-md bg-muted animate-pulse"></div>
+            </div>
+        </div>
+      </header>
+    );
+  }
+
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -69,8 +88,7 @@ export function Header() {
           <span className="text-2xl font-bold font-headline">Achieve Fitness</span>
         </Link>
 
-        {isMounted && (
-          <>
+        
             {isDesktop ? (
               <nav className="flex items-center gap-4">
                 {navLinks.map((link) => (
@@ -211,8 +229,7 @@ export function Header() {
                 </Sheet>
               </div>
             )}
-          </>
-        )}
+          
       </div>
     </header>
   );
