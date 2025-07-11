@@ -35,7 +35,14 @@ const navLinks = [
 ];
 
 const toolsLinks = [
-    { href: "/#workout-plan", label: "Personalized Workout Plan Generation" },
+    { href: "/tools/personalized-workout-plan", label: "Personalized Workout Plan Generation" },
+    { href: "/tools/intelligent-client-bots", label: "Intelligent Client Engagement Bots" },
+    { href: "/tools/dynamic-nutrition-guidance", label: "Dynamic Nutrition Guidance" },
+    { href: "/tools/progress-analytics", label: "Advanced Progress Tracking & Analytics" },
+    { href: "/tools/recovery-protocols", label: "Optimized Recovery Protocols" },
+    { href: "/tools/adaptive-goal-setting", label: "Adaptive Goal Setting & Adjustment" },
+    { href: "/tools/behavioral-coaching", label: "Behavioral Coaching & Habit Formation" },
+    { href: "/tools/client-journey", label: "Client Journey Personalization" },
 ];
 
 

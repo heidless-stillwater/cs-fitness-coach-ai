@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { WorkoutPlanForm } from "@/components/workout-plan-form";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -16,7 +15,7 @@ export default function Home() {
           </p>
           <div className="flex justify-center">
             <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="#workout-plan">Create Your Free Plan</Link>
+              <Link href="/tools/personalized-workout-plan">Create Your Free Plan</Link>
             </Button>
           </div>
         </div>
@@ -30,15 +29,15 @@ export default function Home() {
         />
       </section>
 
-      <section id="workout-plan" className="w-full py-16 md:py-24 bg-background">
+      <section id="features" className="w-full py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-headline font-bold">Get Your Personalised Workout Plan</h2>
+            <h2 className="text-3xl md:text-4xl font-headline font-bold">Features</h2>
             <p className="mt-4 text-muted-foreground">
-              Fill out the form below to receive a customized workout plan tailored to your goals, experience, and resources.
+              Explore the powerful AI tools designed to help you achieve your fitness goals.
             </p>
           </div>
-          <WorkoutPlanForm />
+          {/* You can add more content here about your features. */}
         </div>
       </section>
     </>
