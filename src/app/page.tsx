@@ -96,6 +96,34 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>
+            <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="font-headline">Adaptive Goal Setting & Adjustment</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                 <div className="aspect-video mb-4 overflow-hidden rounded-lg">
+                  <Image
+                    src="https://placehold.co/600x400.png"
+                    alt="Goal setting illustration"
+                    data-ai-hint="goals chart"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                    Our AI helps you set realistic goals and automatically adjusts them based on your progress, ensuring you stay motivated and on track.
+                </p>
+              </CardContent>
+              <CardFooter>
+                 <Button asChild variant="outline" className="w-full">
+                  <Link href="/tools/adaptive-goal-setting">
+                    Adjust Your Goals
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
           </div>
         </div>
       </section>
