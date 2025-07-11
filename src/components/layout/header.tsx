@@ -81,7 +81,7 @@ export function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               {toolsLinks.map((link) => (
-                <DropdownMenuItem key={link.href} asChild>
+                <DropdownMenuItem key={link.label} asChild>
                   <Link href={link.href}>{link.label}</Link>
                 </DropdownMenuItem>
               ))}
@@ -139,7 +139,7 @@ export function Header() {
                       href={link.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "transition-colors hover:text-primary px-4 py-3 border-b",
+                        "block transition-colors hover:text-primary px-4 py-3 border-b",
                         pathname === link.href ? "text-primary bg-muted" : "text-foreground"
                       )}
                     >
