@@ -28,10 +28,23 @@ const SuggestWorkoutPlanInputSchema = z.object({
 });
 export type SuggestWorkoutPlanInput = z.infer<typeof SuggestWorkoutPlanInputSchema>;
 
+const ExerciseSchema = z.object({
+  name: z.string().describe('The name of the exercise.'),
+  sets: z.string().describe('The number of sets to perform.'),
+  reps: z.string().describe('The number of repetitions per set.'),
+  rest: z.string().describe('The rest period between sets.'),
+});
+
+const DailyWorkoutSchema = z.object({
+  day: z.string().describe('The day of the week for the workout (e.g., Monday, Tuesday).'),
+  focus: z.string().describe('The focus of the workout (e.g., Upper Body, Lower Body, Cardio).'),
+  exercises: z.array(ExerciseSchema).describe('A list of exercises for the day.'),
+});
+
 const SuggestWorkoutPlanOutputSchema = z.object({
-  workoutPlan: z
-    .string()
-    .describe('A personalized workout plan suggestion based on the user input.'),
+  title: z.string().describe('A catchy title for the workout plan.'),
+  summary: z.string().describe('A brief summary of the workout plan.'),
+  weeklySchedule: z.array(DailyWorkoutSchema).describe('The weekly workout schedule.'),
 });
 export type SuggestWorkoutPlanOutput = z.infer<typeof SuggestWorkoutPlanOutputSchema>;
 
@@ -45,14 +58,20 @@ const prompt = ai.definePrompt({
   output: {schema: SuggestWorkoutPlanOutputSchema},
   prompt: `You are an expert personal trainer. A user has provided their fitness goals, experience level, available time, and equipment access.
 
-  Based on this information, suggest a personalized workout plan.
+  Based on this information, create a detailed, personalized, week-long workout plan.
 
-  Fitness Goals: {{{fitnessGoals}}}
-  Experience Level: {{{experienceLevel}}}
-  Available Time: {{{availableTime}}}
-  Equipment Access: {{{equipmentAccess}}}
+  User Profile:
+  - Fitness Goals: {{{fitnessGoals}}}
+  - Experience Level: {{{experienceLevel}}}
+  - Available Time: {{{availableTime}}}
+  - Equipment Access: {{{equipmentAccess}}}
 
-  Workout Plan Suggestion:`, // Keep it simple for now.
+  Your task is to generate a structured workout plan. The plan should include a title, a summary, and a day-by-day breakdown of exercises.
+  For each workout day, specify the focus (e.g., Upper Body, Full Body, Cardio & Core) and list the exercises with sets, reps, and rest periods.
+  The number of workout days should be realistic based on the user's available time.
+  The exercises should be appropriate for the user's experience level and available equipment.
+  Ensure the response is formatted according to the provided JSON schema.
+  `,
 });
 
 const suggestWorkoutPlanFlow = ai.defineFlow(

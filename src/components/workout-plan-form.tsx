@@ -30,6 +30,21 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Loader2, Sparkles } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
 
 const formSchema = z.object({
   fitnessGoals: z.string().min(10, "Please describe your goals in more detail."),
@@ -67,7 +82,7 @@ export function WorkoutPlanForm() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
+    <div className="max-w-4xl mx-auto">
       <Card className="shadow-lg">
         <CardContent className="p-6">
           <Form {...form}>
@@ -173,15 +188,45 @@ export function WorkoutPlanForm() {
       {result && (
         <Card className="mt-8 animate-in fade-in-50">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 font-headline">
-              <Sparkles className="text-primary" />
-              Your Custom Workout Plan
+            <CardTitle className="flex items-center gap-2 font-headline text-2xl md:text-3xl">
+              <Sparkles className="text-primary h-6 w-6 md:h-8 md:w-8" />
+              {result.title}
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="prose prose-sm dark:prose-invert max-w-none">
-              <p className="whitespace-pre-wrap font-body">{result.workoutPlan}</p>
-            </div>
+            <p className="text-muted-foreground mb-6">{result.summary}</p>
+            
+            <Accordion type="single" collapsible className="w-full" defaultValue="item-0">
+              {result.weeklySchedule.map((day, index) => (
+                <AccordionItem value={`item-${index}`} key={index}>
+                  <AccordionTrigger className="text-lg font-semibold hover:no-underline">
+                    {day.day}: <span className="text-primary ml-2">{day.focus}</span>
+                  </AccordionTrigger>
+                  <AccordionContent>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>Exercise</TableHead>
+                          <TableHead>Sets</TableHead>
+                          <TableHead>Reps</TableHead>
+                          <TableHead>Rest</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {day.exercises.map((exercise, exIndex) => (
+                           <TableRow key={exIndex}>
+                            <TableCell className="font-medium">{exercise.name}</TableCell>
+                            <TableCell>{exercise.sets}</TableCell>
+                            <TableCell>{exercise.reps}</TableCell>
+                            <TableCell>{exercise.rest}</TableCell>
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </CardContent>
         </Card>
       )}
