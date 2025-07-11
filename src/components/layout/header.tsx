@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -31,6 +32,17 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+const toolsLinks = [
+	{ href: "#", label: "Personalized Workout Plan Generation" },
+	{ href: "#", label: "Intelligent Client Engagement Bots" },
+	{ href: "#", label: "Dynamic Nutrition Guidance" },
+	{ href: "#", label: "Advanced Progress Tracking & Analytics" },
+	{ href: "#", label: "Optimized Recovery Protocols" },
+	{ href: "#", label: "Adaptive Goal Setting & Adjustment" },
+	{ href: "#", label: "Behavioral Coaching & Habit Formation" },
+	{ href: "#", label: "Client Journey Personalization" },
+];
+
 const adminLinks = [
   { href: "/ai-functions", label: "Fitness Coach AI Function" },
 ];
@@ -60,6 +72,21 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary data-[state=open]:text-primary p-0 h-auto">
+                Tools
+                <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {toolsLinks.map((link) => (
+                <DropdownMenuItem key={link.href} asChild>
+                  <Link href={link.href}>{link.label}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary data-[state=open]:text-primary p-0 h-auto">
@@ -105,7 +132,7 @@ export function Header() {
                     </Button>
                   </SheetClose>
                 </div>
-                <nav className="flex flex-col text-lg font-medium">
+                <nav className="flex-grow overflow-y-auto text-lg font-medium">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
@@ -120,8 +147,28 @@ export function Header() {
                     </Link>
                   ))}
                    <Accordion type="single" collapsible className="w-full">
-                    <AccordionItem value="item-1" className="border-b">
+                     <AccordionItem value="item-1" className="border-b">
                       <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary">
+                        Tools
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-0">
+                        {toolsLinks.map((link) => (
+                           <Link
+                            key={link.label}
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={cn(
+                              "block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t text-sm",
+                              pathname === link.href ? "text-primary bg-muted" : "text-foreground"
+                            )}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                    <AccordionItem value="item-2" className="border-b-0">
+                      <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary border-b">
                         Admin
                       </AccordionTrigger>
                       <AccordionContent className="pb-0">
@@ -131,7 +178,7 @@ export function Header() {
                             href={link.href}
                             onClick={() => setIsOpen(false)}
                             className={cn(
-                              "block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t",
+                              "block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t text-sm",
                               pathname === link.href ? "text-primary bg-muted" : "text-foreground"
                             )}
                           >
