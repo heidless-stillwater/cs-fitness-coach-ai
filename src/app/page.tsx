@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,28 +8,37 @@ import { ArrowRight, CheckCircle } from "lucide-react";
 export default function Home() {
   return (
     <>
-      <section className="relative w-full py-20 md:py-32 lg:py-40 bg-card">
-        <div className="container mx-auto px-4 md:px-6 text-center space-y-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-headline font-bold tracking-tight">
-            Unlock Your Potential with <span className="text-primary">Achieve Fitness</span>
-          </h1>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-muted-foreground">
-            Your journey to a healthier, stronger you starts here. Get a personalized workout plan designed by experts, for free.
-          </p>
-          <div className="flex justify-center">
-            <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-              <Link href="/tools/personalized-workout-plan">Create Your Free Plan</Link>
-            </Button>
+      <section className="w-full py-20 md:py-32 lg:py-40 bg-card">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="flex justify-center">
+              <Image
+                src="https://placehold.co/800x800.png"
+                alt="Fitness"
+                data-ai-hint="fitness person"
+                width={600}
+                height={600}
+                className="rounded-lg shadow-2xl"
+              />
+            </div>
+            <div className="space-y-6 text-center md:text-left">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold tracking-tight">
+                Unlock Your Potential with <span className="text-primary">Achieve Fitness</span>
+              </h1>
+              <p className="max-w-xl text-lg md:text-xl text-muted-foreground mx-auto md:mx-0">
+                Your journey to a healthier, stronger you starts here. Get a personalized workout plan designed by experts, for free.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+                  <Link href="/tools/personalized-workout-plan">Create Your Free Plan</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                   <Link href="#features">Explore Tools</Link>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
-        <Image
-          src="https://placehold.co/1920x1080.png"
-          alt="Fitness background"
-          data-ai-hint="fitness background"
-          layout="fill"
-          objectFit="cover"
-          className="absolute inset-0 w-full h-full -z-10 opacity-10 dark:opacity-5"
-        />
       </section>
 
       <section id="about" className="w-full py-16 md:py-24 bg-background">
