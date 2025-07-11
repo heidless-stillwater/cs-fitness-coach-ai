@@ -34,17 +34,6 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-const toolsLinks = [
-	{ href: "#", label: "Personalized Workout Plan Generation" },
-	{ href: "#", label: "Intelligent Client Engagement Bots" },
-	{ href: "#", label: "Dynamic Nutrition Guidance" },
-	{ href: "#", label: "Advanced Progress Tracking & Analytics" },
-	{ href: "#", label: "Optimized Recovery Protocols" },
-	{ href: "#", label: "Adaptive Goal Setting & Adjustment" },
-	{ href: "#", label: "Behavioral Coaching & Habit Formation" },
-	{ href: "#", label: "Client Journey Personalization" },
-];
-
 const adminLinks = [
   { href: "/ai-functions", label: "Fitness Coach AI Function" },
   { href: "/ai-functions", label: "Advanced Progress Tracking & Analytics" },
@@ -90,21 +79,6 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-muted-foreground">
-                      Tools
-                      <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end">
-                    {toolsLinks.map((link, index) => (
-                      <DropdownMenuItem key={`${link.label}-${index}`} asChild>
-                        <Link href={link.href}>{link.label}</Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="text-muted-foreground">
@@ -164,26 +138,6 @@ export function Header() {
                                 {link.label}
                               </Link>
                             ))}
-                           <AccordionItem value="item-1" className="border-b">
-                            <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary">
-                              Tools
-                            </AccordionTrigger>
-                            <AccordionContent className="pb-0">
-                              {toolsLinks.map((link, index) => (
-                                 <Link
-                                  key={`${link.label}-${index}`}
-                                  href={link.href}
-                                  onClick={() => setIsOpen(false)}
-                                  className={cn(
-                                    "block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t text-sm",
-                                    pathname === link.href ? "text-primary bg-muted" : "text-foreground"
-                                  )}
-                                >
-                                  {link.label}
-                                </Link>
-                              ))}
-                            </AccordionContent>
-                          </AccordionItem>
                           <AccordionItem value="item-2" className="border-b-0">
                             <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary border-b">
                               Admin
