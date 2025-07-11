@@ -45,6 +45,13 @@ const toolsLinks = [
 
 const adminLinks = [
   { href: "/ai-functions", label: "Fitness Coach AI Function" },
+  { href: "#", label: "Advanced Progress Tracking & Analytics" },
+  { href: "#", label: "Real-time Form Correction & Feedback" },
+  { href: "#", label: "Market Trend Analysis & Niche Identification" },
+  { href: "#", label: "Automated Content Creation" },
+  { href: "#", label: "Wearable Device Integration & Data Analysis" },
+  { href: "#", label: "Client Lead Qualification & Nurturing" },
+  { href: "#", label: "Performance Prediction & Benchmarking" },
 ];
 
 export function Header() {
@@ -80,8 +87,8 @@ export function Header() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              {toolsLinks.map((link) => (
-                <DropdownMenuItem key={link.label} asChild>
+              {toolsLinks.map((link, index) => (
+                <DropdownMenuItem key={`${link.label}-${index}`} asChild>
                   <Link href={link.href}>{link.label}</Link>
                 </DropdownMenuItem>
               ))}
@@ -96,7 +103,7 @@ export function Header() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               {adminLinks.map((link) => (
-                <DropdownMenuItem key={link.href} asChild>
+                <DropdownMenuItem key={link.label} asChild>
                   <Link href={link.href}>{link.label}</Link>
                 </DropdownMenuItem>
               ))}
