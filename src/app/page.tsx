@@ -116,9 +116,9 @@ export default function Home() {
               <CardContent className="flex-grow">
                  <div className="aspect-video mb-4 overflow-hidden rounded-lg">
                   <Image
-                    src="https://storage.googleapis.com/paula-personal-trainer-0/nutrition-guidance-0-live.jpg"
+                    src="https://storage.googleapis.com/paula-personal-trainer-0/trainer-headshot-2.jpg"
                     alt="Healthy food illustration"
-                    data-ai-hint="healthy food"
+                    data-ai-hint="nutritionist smiling"
                     width={600}
                     height={400}
                     className="w-full h-full object-cover"
