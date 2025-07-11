@@ -13,7 +13,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="flex justify-center">
               <Image
-                src="https://placehold.co/800x800.png"
+                src="https://storage.googleapis.com/paula-personal-trainer-0/personal-training-0-live.jpg"
                 alt="Fitness"
                 data-ai-hint="fitness person"
                 width={600}
