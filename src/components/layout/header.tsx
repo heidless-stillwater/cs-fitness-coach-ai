@@ -35,6 +35,7 @@ const navLinks = [
 ];
 
 const toolsLinks = [
+    { href: "/tools/real-time-form-correction", label: "Real-time Form Correction & Feedback" },
     { href: "/tools/personalized-workout-plan", label: "Personalized Workout Plan Generation" },
     { href: "/tools/intelligent-client-bots", label: "Intelligent Client Engagement Bots" },
     { href: "/tools/dynamic-nutrition-guidance", label: "Dynamic Nutrition Guidance" },
