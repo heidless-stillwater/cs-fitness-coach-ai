@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Dumbbell, Menu, X } from "lucide-react";
+import { Dumbbell, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,6 +11,18 @@ import {
   SheetTrigger,
   SheetClose
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "../theme-toggle";
@@ -21,6 +33,11 @@ const navLinks = [
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
+
+const toolsLinks = [
+    { href: "/#workout-plan", label: "Personalized Workout Plan Generation" },
+];
+
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,6 +91,20 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
+                 <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary focus-visible:ring-0">
+                      Tools <ChevronDown className="ml-1 h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    {toolsLinks.map((link) => (
+                        <DropdownMenuItem key={link.href} asChild>
+                            <Link href={link.href}>{link.label}</Link>
+                        </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
                  <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
                   <Link href="/contact">Start Here</Link>
                 </Button>
@@ -118,6 +149,25 @@ export function Header() {
                                 {link.label}
                               </Link>
                             ))}
+                             <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="tools" className="border-b">
+                                <AccordionTrigger className="hover:no-underline px-4 py-3 text-foreground transition-colors hover:text-primary">Tools</AccordionTrigger>
+                                <AccordionContent className="pb-0">
+                                    <div className="flex flex-col">
+                                    {toolsLinks.map((link) => (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t text-foreground"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    ))}
+                                    </div>
+                                </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
                       </nav>
                       <div className="mt-auto p-4 border-t">
                         <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" onClick={() => setIsOpen(false)}>
