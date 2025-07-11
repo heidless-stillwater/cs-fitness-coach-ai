@@ -88,7 +88,7 @@ export default function Home() {
               <CardContent className="flex-grow">
                  <div className="aspect-video mb-4 overflow-hidden rounded-lg">
                   <Image
-                    src="https://storage.googleapis.com/paula-personal-trainer-0/form-correction-0-live.jpg"
+                    src="https://storage.googleapis.com/paula-personal-trainer-0/form-correction-1-live.jpg"
                     alt="AI form correction illustration"
                     data-ai-hint="exercise form"
                     width={600}
