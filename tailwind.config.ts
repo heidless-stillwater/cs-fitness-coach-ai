@@ -17,8 +17,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Montserrat', 'sans-serif'],
-        headline: ['Open Sans', 'sans-serif'],
+        body: ['Lato', 'sans-serif'],
+        headline: ['Exo 2', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {
