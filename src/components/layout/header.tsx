@@ -45,6 +45,15 @@ const adminLinks = [
   { href: "/ai-functions", label: "Performance Prediction & Benchmarking" },
 ];
 
+const toolsLinks = [
+    { href: "/ai-functions", label: "Dynamic Nutrition Guidance" },
+    { href: "/ai-functions", label: "Intelligent Client Engagement Bots" },
+    { href: "/ai-functions", label: "Injury Risk Assessment & Prevention" },
+    { href: "/ai-functions", label: "Optimized Recovery Protocols" },
+    { href: "/ai-functions", label: "Adaptive Goal Setting & Adjustment" },
+    { href: "/ai-functions", label: "Behavioral Coaching & Habit Formation" },
+];
+
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
@@ -79,9 +88,24 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
+                 <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost">
+                      Tools
+                      <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    {toolsLinks.map((link, index) => (
+                      <DropdownMenuItem key={`${link.label}-${index}`} asChild>
+                        <Link href={link.href}>{link.label}</Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-muted-foreground">
+                    <Button variant="ghost">
                       Admin
                       <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
                     </Button>
@@ -138,6 +162,26 @@ export function Header() {
                                 {link.label}
                               </Link>
                             ))}
+                            <AccordionItem value="item-1" className="border-b">
+                                <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary">
+                                Tools
+                                </AccordionTrigger>
+                                <AccordionContent className="pb-0">
+                                {toolsLinks.map((link, index) => (
+                                    <Link
+                                    key={`${link.label}-${index}`}
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className={cn(
+                                        "block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t text-sm",
+                                        pathname === link.href ? "text-primary bg-muted" : "text-foreground"
+                                    )}
+                                    >
+                                    {link.label}
+                                    </Link>
+                                ))}
+                                </AccordionContent>
+                            </AccordionItem>
                           <AccordionItem value="item-2" className="border-b-0">
                             <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary border-b">
                               Admin
