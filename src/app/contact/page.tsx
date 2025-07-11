@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { ContactForm } from "@/components/contact-form";
 
 const contactDetails = [
   {
@@ -32,7 +33,7 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 mb-12">
             <Card className="shadow-lg">
                 <CardHeader>
                     <CardTitle className="font-headline">Contact Information</CardTitle>
@@ -56,26 +57,28 @@ export default function ContactPage() {
                 </CardContent>
             </Card>
             
-            <Card className="shadow-lg overflow-hidden">
-                <CardHeader>
-                    <CardTitle className="font-headline">Our Location</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="aspect-w-16 aspect-h-9">
-                        <iframe
-                            src="https://maps.google.com/maps?q=Woodberry%20Down,%20London%20N4%202TG&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                            width="100%"
-                            height="450"
-                            style={{ border: 0 }}
-                            allowFullScreen={true}
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            className="rounded-lg"
-                        ></iframe>
-                    </div>
-                </CardContent>
-            </Card>
+            <ContactForm />
         </div>
+
+        <Card className="shadow-lg overflow-hidden">
+            <CardHeader>
+                <CardTitle className="font-headline">Our Location</CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="aspect-w-16 aspect-h-9">
+                    <iframe
+                        src="https://maps.google.com/maps?q=Woodberry%20Down,%20London%20N4%202TG&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                        width="100%"
+                        height="450"
+                        style={{ border: 0 }}
+                        allowFullScreen={true}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="rounded-lg"
+                    ></iframe>
+                </div>
+            </CardContent>
+        </Card>
       </div>
     </div>
   );
