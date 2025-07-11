@@ -144,7 +144,7 @@ export default function Home() {
               <CardContent className="flex-grow">
                  <div className="aspect-video mb-4 overflow-hidden rounded-lg">
                   <Image
-                    src="https://placehold.co/600x400.png"
+                    src="https://storage.googleapis.com/paula-personal-trainer-0/adaptive-goal-setting-1-live.jpg"
                     alt="Goal setting illustration"
                     data-ai-hint="goals chart"
                     width={600}
