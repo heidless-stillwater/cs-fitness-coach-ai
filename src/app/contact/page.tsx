@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, MapPin, Phone, Clock } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 const contactDetails = [
   {
@@ -20,12 +20,6 @@ const contactDetails = [
     href: "mailto:test@test.com",
   },
 ];
-
-const operatingHours = [
-    { day: "Monday - Friday", time: "6:00 AM - 9:00 PM" },
-    { day: "Saturday", time: "8:00 AM - 6:00 PM" },
-    { day: "Sunday", time: "10:00 AM - 4:00 PM" },
-]
 
 export default function ContactPage() {
   return (
@@ -62,24 +56,23 @@ export default function ContactPage() {
                 </CardContent>
             </Card>
             
-            <Card className="shadow-lg">
+            <Card className="shadow-lg overflow-hidden">
                 <CardHeader>
-                    <CardTitle className="font-headline">Hours of Operation</CardTitle>
+                    <CardTitle className="font-headline">Our Location</CardTitle>
                 </CardHeader>
                 <CardContent>
-                     <ul className="space-y-4">
-                        <li className="flex items-start">
-                             <Clock className="h-6 w-6 text-primary mr-4 mt-1 flex-shrink-0" />
-                            <div>
-                                {operatingHours.map(item => (
-                                    <div key={item.day} className="flex justify-between">
-                                        <p className="font-semibold">{item.day}:</p>
-                                        <p className="text-muted-foreground ml-4">{item.time}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </li>
-                     </ul>
+                    <div className="aspect-w-16 aspect-h-9">
+                        <iframe
+                            src="https://maps.google.com/maps?q=Woodberry%20Down,%20London%20N4%202TG&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            width="100%"
+                            height="450"
+                            style={{ border: 0 }}
+                            allowFullScreen={true}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="rounded-lg"
+                        ></iframe>
+                    </div>
                 </CardContent>
             </Card>
         </div>
