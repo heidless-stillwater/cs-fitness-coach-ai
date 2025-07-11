@@ -48,6 +48,12 @@ const toolsLinks = [
 
 const adminLinks = [
     { href: "/admin/fitness-coach-ai-functions", label: "Fitness Coach AI Functions" },
+    { href: "/admin/progress-analytics", label: "Advanced Progress Tracking & Analytics" },
+    { href: "/admin/market-trend-analysis", label: "Market Trend Analysis & Niche Identification" },
+    { href: "/admin/automated-content-creation", label: "Automated Content Creation" },
+    { href: "/admin/wearable-device-integration", label: "Wearable Device Integration & Data Analysis" },
+    { href: "/admin/client-lead-qualification", label: "Client Lead Qualification & Nurturing" },
+    { href: "/admin/performance-prediction", label: "Performance Prediction & Benchmarking" },
 ]
 
 
