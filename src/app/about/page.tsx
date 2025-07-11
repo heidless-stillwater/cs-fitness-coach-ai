@@ -22,9 +22,8 @@ export default function AboutPage() {
           <div className="md:col-span-2">
             <Card className="overflow-hidden shadow-lg">
               <Image
-                src="https://placehold.co/600x800.png"
+                src="https://storage.googleapis.com/paula-personal-trainer-0/trainer-headshot-0-live.jpg"
                 alt="Headshot of the personal trainer"
-                data-ai-hint="personal trainer"
                 width={600}
                 height={800}
                 className="w-full h-auto object-cover"

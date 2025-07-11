@@ -61,9 +61,8 @@ export default function Home() {
             </div>
              <div className="flex justify-center">
               <Image
-                src="https://placehold.co/600x600.png"
+                src="https://storage.googleapis.com/paula-personal-trainer-0/trainer-headshot-0-live.jpg"
                 alt="Headshot of the personal trainer"
-                data-ai-hint="personal trainer portrait"
                 width={450}
                 height={450}
                 className="rounded-full object-cover aspect-square shadow-2xl"
