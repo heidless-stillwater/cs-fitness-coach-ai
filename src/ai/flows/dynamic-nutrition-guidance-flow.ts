@@ -34,7 +34,7 @@ const DailyPlanSchema = z.object({
   }),
 });
 
-export const GenerateNutritionPlanInputSchema = z.object({
+const GenerateNutritionPlanInputSchema = z.object({
   age: z.string().describe('The age of the user.'),
   weight: z.string().describe('The weight of the user (including units, e.g., 180 lbs or 80 kg).'),
   height: z.string().describe('The height of the user (including units, e.g., 6\'0" or 183 cm).'),
@@ -45,7 +45,7 @@ export const GenerateNutritionPlanInputSchema = z.object({
 });
 export type GenerateNutritionPlanInput = z.infer<typeof GenerateNutritionPlanInputSchema>;
 
-export const GenerateNutritionPlanOutputSchema = z.object({
+const GenerateNutritionPlanOutputSchema = z.object({
   title: z.string().describe('A catchy title for the nutrition plan.'),
   summary: z.string().describe('A brief summary of the plan, including estimated daily calorie and macro targets.'),
   weeklyPlan: z.array(DailyPlanSchema).describe('A 7-day meal plan.'),
