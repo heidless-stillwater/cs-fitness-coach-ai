@@ -68,6 +68,34 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>
+             <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="font-headline">Dynamic Nutrition Guidance</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                 <div className="aspect-video mb-4 overflow-hidden rounded-lg">
+                  <Image
+                    src="https://placehold.co/600x400.png"
+                    alt="Healthy food illustration"
+                    data-ai-hint="healthy food"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  Receive AI-generated meal plans and nutritional advice that adapt to your progress, preferences, and dietary restrictions to fuel your fitness journey.
+                </p>
+              </CardContent>
+              <CardFooter>
+                 <Button asChild variant="outline" className="w-full">
+                  <Link href="/tools/dynamic-nutrition-guidance">
+                    Get Your Meal Plan
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
           </div>
         </div>
       </section>
