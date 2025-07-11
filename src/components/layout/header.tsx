@@ -60,7 +60,7 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
-  const isDesktop = useBreakpoint(900);
+  const isDesktop = useBreakpoint(950);
 
   useEffect(() => {
     setIsMounted(true);
