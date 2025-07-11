@@ -116,7 +116,7 @@ export default function Home() {
               <CardContent className="flex-grow">
                  <div className="aspect-video mb-4 overflow-hidden rounded-lg">
                   <Image
-                    src="https://placehold.co/600x400.png"
+                    src="https://storage.googleapis.com/paula-personal-trainer-0/nutrition-guidance-0-live.jpg"
                     alt="Healthy food illustration"
                     data-ai-hint="healthy food"
                     width={600}
