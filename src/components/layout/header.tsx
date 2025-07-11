@@ -2,16 +2,37 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Dumbbell, Menu, X } from "lucide-react";
+import { Dumbbell, Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose
+} from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const navLinks = [
   { href: "/about", label: "About" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
+];
+
+const adminLinks = [
+  { href: "/ai-functions", label: "Fitness Coach AI Function" },
 ];
 
 export function Header() {
@@ -39,6 +60,21 @@ export function Header() {
               {link.label}
             </Link>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary data-[state=open]:text-primary p-0 h-auto">
+                Admin
+                <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {adminLinks.map((link) => (
+                <DropdownMenuItem key={link.href} asChild>
+                  <Link href={link.href}>{link.label}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
         </nav>
         
         <div className="hidden md:flex items-center gap-2">
@@ -55,32 +91,56 @@ export function Header() {
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-full max-w-xs">
+            <SheetContent side="right" className="w-full max-w-xs p-0">
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between p-4 border-b">
                    <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
                       <Dumbbell className="h-6 w-6 text-primary" />
                       <span className="text-xl font-bold font-headline">Achieve Fitness</span>
                     </Link>
-                  <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
-                    <X className="h-6 w-6" />
-                    <span className="sr-only">Close menu</span>
-                  </Button>
+                  <SheetClose asChild>
+                    <Button variant="ghost" size="icon">
+                      <X className="h-6 w-6" />
+                      <span className="sr-only">Close menu</span>
+                    </Button>
+                  </SheetClose>
                 </div>
-                <nav className="flex flex-col gap-4 p-4">
+                <nav className="flex flex-col text-lg font-medium">
                   {navLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "text-lg font-medium transition-colors hover:text-primary",
-                        pathname === link.href ? "text-primary" : "text-foreground"
+                        "transition-colors hover:text-primary px-4 py-3 border-b",
+                        pathname === link.href ? "text-primary bg-muted" : "text-foreground"
                       )}
                     >
                       {link.label}
                     </Link>
                   ))}
+                   <Accordion type="single" collapsible className="w-full">
+                    <AccordionItem value="item-1" className="border-b">
+                      <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary">
+                        Admin
+                      </AccordionTrigger>
+                      <AccordionContent className="pb-0">
+                        {adminLinks.map((link) => (
+                           <Link
+                            key={link.href}
+                            href={link.href}
+                            onClick={() => setIsOpen(false)}
+                            className={cn(
+                              "block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t",
+                              pathname === link.href ? "text-primary bg-muted" : "text-foreground"
+                            )}
+                          >
+                            {link.label}
+                          </Link>
+                        ))}
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </nav>
                 <div className="mt-auto p-4 border-t">
                   <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" onClick={() => setIsOpen(false)}>
