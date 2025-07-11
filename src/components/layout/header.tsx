@@ -34,16 +34,12 @@ const navLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
-const adminLinks = [
-  { href: "/ai-functions", label: "Fitness Coach AI Function" },
-  { href: "/ai-functions", label: "Advanced Progress Tracking & Analytics" },
-  { href: "/ai-functions", label: "Real-time Form Correction & Feedback" },
-  { href: "/ai-functions", label: "Market Trend Analysis & Niche Identification" },
-  { href: "/ai-functions", label: "Automated Content Creation" },
-  { href: "/ai-functions", label: "Wearable Device Integration & Data Analysis" },
-  { href: "/ai-functions", label: "Client Lead Qualification & Nurturing" },
-  { href: "/ai-functions", label: "Performance Prediction & Benchmarking" },
+const toolsLinks = [
+  { href: "/ai-functions#personalized-workout-plan-generation", label: "Personalized Workout Plan Generation" },
+  { href: "/ai-functions#intelligent-client-engagement-bots", label: "Intelligent Client Engagement Bots" },
+  { href: "/ai-functions#dynamic-nutrition-guidance", label: "Dynamic Nutrition Guidance" },
 ];
+
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -100,12 +96,12 @@ export function Header() {
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost">
-                      Admin
+                      Tools
                       <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    {adminLinks.map((link, index) => (
+                    {toolsLinks.map((link, index) => (
                       <DropdownMenuItem key={`${link.label}-${index}`} asChild>
                         <Link href={link.href}>{link.label}</Link>
                       </DropdownMenuItem>
@@ -156,12 +152,12 @@ export function Header() {
                                 {link.label}
                               </Link>
                             ))}
-                          <AccordionItem value="item-2" className="border-b-0">
+                          <AccordionItem value="item-1" className="border-b-0">
                             <AccordionTrigger className="px-4 py-3 hover:no-underline hover:text-primary border-b">
-                              Admin
+                              Tools
                             </AccordionTrigger>
                             <AccordionContent className="pb-0">
-                              {adminLinks.map((link, index) => (
+                              {toolsLinks.map((link, index) => (
                                  <Link
                                   key={`${link.label}-${index}`}
                                   href={link.href}
