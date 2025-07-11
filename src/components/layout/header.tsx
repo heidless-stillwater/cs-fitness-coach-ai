@@ -46,12 +46,9 @@ const adminLinks = [
 ];
 
 const toolsLinks = [
-    { href: "/ai-functions", label: "Dynamic Nutrition Guidance" },
+    { href: "/ai-functions", label: "Personalized Workout Plan Generation" },
     { href: "/ai-functions", label: "Intelligent Client Engagement Bots" },
-    { href: "/ai-functions", label: "Injury Risk Assessment & Prevention" },
-    { href: "/ai-functions", label: "Optimized Recovery Protocols" },
-    { href: "/ai-functions", label: "Adaptive Goal Setting & Adjustment" },
-    { href: "/ai-functions", label: "Behavioral Coaching & Habit Formation" },
+    { href: "/ai-functions", label: "Dynamic Nutrition Guidance" },
 ];
 
 export function Header() {
