@@ -46,6 +46,10 @@ const toolsLinks = [
     { href: "/tools/client-journey", label: "Client Journey Personalization" },
 ];
 
+const adminLinks = [
+    { href: "/admin/fitness-coach-ai-functions", label: "Fitness Coach AI Functions" },
+]
+
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -101,12 +105,26 @@ export function Header() {
                 ))}
                  <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-[#F3E5F5] focus-visible:ring-0">
+                    <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:bg-accent hover:text-[#F3E5F5] focus-visible:ring-0">
                       Tools <ChevronDown className="ml-1 h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
                     {toolsLinks.map((link) => (
+                        <DropdownMenuItem key={link.href} asChild>
+                            <Link href={link.href}>{link.label}</Link>
+                        </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:bg-accent hover:text-[#F3E5F5] focus-visible:ring-0">
+                      Admin <ChevronDown className="ml-1 h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    {adminLinks.map((link) => (
                         <DropdownMenuItem key={link.href} asChild>
                             <Link href={link.href}>{link.label}</Link>
                         </DropdownMenuItem>
@@ -163,6 +181,23 @@ export function Header() {
                                 <AccordionContent className="pb-0">
                                     <div className="flex flex-col">
                                     {toolsLinks.map((link) => (
+                                        <Link
+                                            key={link.href}
+                                            href={link.href}
+                                            onClick={() => setIsOpen(false)}
+                                            className="block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t text-foreground"
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    ))}
+                                    </div>
+                                </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="admin" className="border-b">
+                                <AccordionTrigger className="hover:no-underline px-4 py-3 text-foreground transition-colors hover:text-primary">Admin</AccordionTrigger>
+                                <AccordionContent className="pb-0">
+                                    <div className="flex flex-col">
+                                    {adminLinks.map((link) => (
                                         <Link
                                             key={link.href}
                                             href={link.href}
