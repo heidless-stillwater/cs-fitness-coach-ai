@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, CheckCircle } from "lucide-react";
 
 export default function Home() {
   return (
@@ -124,6 +124,38 @@ export default function Home() {
                 </Button>
               </CardFooter>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="w-full py-16 md:py-24 bg-card">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6">
+               <div className="text-center md:text-left">
+                  <h2 className="text-3xl md:text-4xl font-headline font-bold">Meet Your Trainer</h2>
+                  <p className="mt-2 text-lg text-muted-foreground">Your Partner in Fitness</p>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                I believe that fitness is a holistic journey towards a better self. My approach combines evidence-based training with personalized nutrition and motivational coaching to help you build sustainable habits. I'm not just here to count reps; I'm here to empower you, celebrate your victories, and guide you through challenges.
+              </p>
+               <Button asChild size="lg">
+                  <Link href="/about">
+                    Learn More About My Philosophy
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+            </div>
+             <div className="flex justify-center">
+              <Image
+                src="https://placehold.co/600x600.png"
+                alt="Headshot of the personal trainer"
+                data-ai-hint="personal trainer portrait"
+                width={450}
+                height={450}
+                className="rounded-full object-cover aspect-square shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
