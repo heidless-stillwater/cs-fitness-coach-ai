@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Dumbbell, Menu, X, ChevronDown } from "lucide-react";
+import { Dumbbell, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -11,17 +11,6 @@ import {
   SheetTrigger,
   SheetClose
 } from "@/components/ui/sheet";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "../theme-toggle";
@@ -31,17 +20,6 @@ const navLinks = [
   { href: "/about", label: "About" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
-];
-
-const toolsLinks = [
-  { href: "/#workout-plan", label: "Personalized Workout Plan Generation" },
-  { href: "#", label: "Intelligent Client Engagement Bots" },
-  { href: "#", label: "Dynamic Nutrition Guidance" },
-  { href: "#", label: "Advanced Progress Tracking & Analytics" },
-  { href: "#", label: "Optimized Recovery Protocols" },
-  { href: "#", label: "Adaptive Goal Setting & Adjustment" },
-  { href: "#", label: "Behavioral Coaching & Habit Formation" },
-  { href: "#", label: "Client Journey Personalization" },
 ];
 
 export function Header() {
@@ -96,21 +74,6 @@ export function Header() {
                     {link.label}
                   </Link>
                 ))}
-                 <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary data-[state=open]:text-primary">
-                      Tools
-                      <ChevronDown className="relative top-[1px] ml-1 h-4 w-4 transition-transform duration-200 group-data-[state=open]:rotate-180" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start">
-                    {toolsLinks.map((link) => (
-                      <DropdownMenuItem key={link.href + link.label} asChild>
-                        <Link href={link.href}>{link.label}</Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
                  <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
                   <Link href="/contact">Start Here</Link>
                 </Button>
@@ -155,23 +118,6 @@ export function Header() {
                                 {link.label}
                               </Link>
                             ))}
-                            <Collapsible className="border-b">
-                              <CollapsibleTrigger className="flex items-center justify-between w-full px-4 py-3 text-left transition-colors hover:text-primary">
-                                Tools <ChevronDown className="h-5 w-5" />
-                              </CollapsibleTrigger>
-                              <CollapsibleContent>
-                                {toolsLinks.map((link) => (
-                                   <Link
-                                    key={link.href + link.label}
-                                    href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="block transition-colors hover:text-primary pl-8 pr-4 py-3 border-t text-base text-muted-foreground"
-                                  >
-                                    {link.label}
-                                  </Link>
-                                ))}
-                              </CollapsibleContent>
-                            </Collapsible>
                       </nav>
                       <div className="mt-auto p-4 border-t">
                         <Button asChild className="w-full bg-accent hover:bg-accent/90 text-accent-foreground" onClick={() => setIsOpen(false)}>
