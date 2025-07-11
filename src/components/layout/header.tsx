@@ -66,7 +66,7 @@ export function Header() {
           <span className="text-2xl font-bold font-headline">Achieve Fitness</span>
         </Link>
         
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -81,7 +81,7 @@ export function Header() {
           ))}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary data-[state=open]:text-primary p-0 h-auto">
+              <Button>
                 Tools
                 <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
               </Button>
@@ -96,7 +96,7 @@ export function Header() {
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="text-sm font-medium text-muted-foreground hover:text-primary data-[state=open]:text-primary p-0 h-auto">
+              <Button>
                 Admin
                 <ChevronDown className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180" />
               </Button>
@@ -109,14 +109,11 @@ export function Header() {
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
-        </nav>
-        
-        <div className="hidden md:flex items-center gap-2">
-          <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+           <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
             <Link href="/contact">Start Here</Link>
           </Button>
-        </div>
-
+        </nav>
+        
         <div className="md:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
