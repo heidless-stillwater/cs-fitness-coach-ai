@@ -38,6 +38,11 @@ const toolsLinks = [
   { href: "/ai-functions#personalized-workout-plan-generation", label: "Personalized Workout Plan Generation" },
   { href: "/ai-functions#intelligent-client-engagement-bots", label: "Intelligent Client Engagement Bots" },
   { href: "/ai-functions#dynamic-nutrition-guidance", label: "Dynamic Nutrition Guidance" },
+  { href: "/ai-functions#advanced-progress-tracking-analytics", label: "Advanced Progress Tracking & Analytics" },
+  { href: "/ai-functions#optimized-recovery-protocols", label: "Optimized Recovery Protocols" },
+  { href: "/ai-functions#adaptive-goal-setting-adjustment", label: "Adaptive Goal Setting & Adjustment" },
+  { href: "/ai-functions#behavioral-coaching-habit-formation", label: "Behavioral Coaching & Habit Formation" },
+  { href: "/ai-functions#client-journey-personalization", label: "Client Journey Personalization" },
 ];
 
 
