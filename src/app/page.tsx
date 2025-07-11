@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
@@ -37,7 +39,36 @@ export default function Home() {
               Explore the powerful AI tools designed to help you achieve your fitness goals.
             </p>
           </div>
-          {/* You can add more content here about your features. */}
+          <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+             <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CardHeader>
+                <CardTitle className="font-headline">Real-time Form Correction & Feedback</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                 <div className="aspect-video mb-4 overflow-hidden rounded-lg">
+                  <Image
+                    src="https://placehold.co/600x400.png"
+                    alt="AI form correction illustration"
+                    data-ai-hint="exercise form"
+                    width={600}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-muted-foreground">
+                  Get instant feedback on your exercise form using your device's camera. Our AI analyzes your movements to help you perform exercises safely and effectively.
+                </p>
+              </CardContent>
+              <CardFooter>
+                 <Button asChild variant="outline" className="w-full">
+                  <Link href="/tools/real-time-form-correction">
+                    Check Your Form
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          </div>
         </div>
       </section>
     </>
