@@ -13,7 +13,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="flex justify-center">
               <Image
-                src="https://storage.googleapis.com/paula-personal-trainer-0/personal-training-0-live.jpg"
+                src="https://storage.googleapis.com/heidless_case_studies/c-fitness-coach/personal-training-0-live.jpg"
                 alt="Fitness"
                 data-ai-hint="fitness person"
                 width={600}
@@ -61,7 +61,7 @@ export default function Home() {
             </div>
              <div className="flex justify-center">
               <Image
-                src="https://storage.googleapis.com/paula-personal-trainer-0/trainer-headshot-0-live.jpg"
+                src="https://storage.googleapis.com/heidless_case_studies/c-fitness-coach/trainer-headshot-0-live.jpg"
                 alt="Headshot of the personal trainer"
                 width={450}
                 height={450}
@@ -88,7 +88,7 @@ export default function Home() {
               <CardContent className="flex-grow">
                  <div className="aspect-video mb-4 overflow-hidden rounded-lg">
                   <Image
-                    src="https://storage.googleapis.com/paula-personal-trainer-0/form-correction-1-live.jpg"
+                    src="https://storage.googleapis.com/heidless_case_studies/c-fitness-coach/form-correction-0.jpg"
                     alt="AI form correction illustration"
                     data-ai-hint="exercise form"
                     width={600}
@@ -116,7 +116,7 @@ export default function Home() {
               <CardContent className="flex-grow">
                  <div className="aspect-video mb-4 overflow-hidden rounded-lg">
                   <Image
-                    src="https://storage.googleapis.com/paula-personal-trainer-0/trainer-headshot-2.jpg"
+                    src="https://storage.googleapis.com/heidless_case_studies/c-fitness-coach/trainer-headshot-2.jpg"
                     alt="Healthy food illustration"
                     data-ai-hint="nutritionist smiling"
                     width={600}
@@ -144,7 +144,7 @@ export default function Home() {
               <CardContent className="flex-grow">
                  <div className="aspect-video mb-4 overflow-hidden rounded-lg">
                   <Image
-                    src="https://storage.googleapis.com/paula-personal-trainer-0/adaptive-goal-setting-1-live.jpg"
+                    src="https://storage.googleapis.com/heidless_case_studies/c-fitness-coach/adaptive-goal-setting-1-live.jpg"
                     alt="Goal setting illustration"
                     data-ai-hint="goals chart"
                     width={600}
